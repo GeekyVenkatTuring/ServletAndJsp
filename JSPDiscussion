@@ -24,6 +24,16 @@ k=add(32,25);
 3.When we deply JSP into server like Tomcat,it converts JSP into java code
 to be more precise,it convert into Servlet
 And the code put in the scriptlet tag, is added in the doGet method
+but Servlet doGet and doPost methods and we may not known in which method we have to put this
+So Tomcat will put this in the jsp life cycle method  jspService()
+other life cycle methods are jspinit and jspdestroy similar to Servlet life cycle methods
 
+When we create Project,create sample JSP method in the Web content folder
 
+When JSP file is deployed in the TOmcat server,it compiles and creates java class to Jsp file
+
+TO find the Java class, find it in the below temporary folder
+/home/vishvaksen/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/
+
+In this Github folder,I am copying this compiled java class,Please use it as reference
 
