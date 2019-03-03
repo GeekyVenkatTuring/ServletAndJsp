@@ -1,1 +1,29 @@
 JSP commands
+
+JSP-Java Server Pages
+
+1.Using JSP, we can have java code inside html pages
+use below script tag, to write custom java code
+<%
+
+
+%>
+
+2.Use declaration script tag to define java method and use that anywhere in the jsp page
+<%!
+public int add(int a,int b){
+return a+b;
+}
+%>
+
+<%
+k=add(32,25);
+
+%>
+
+3.When we deply JSP into server like Tomcat,it converts JSP into java code
+to be more precise,it convert into Servlet
+And the code put in the scriptlet tag, is added in the doGet method
+
+
+
