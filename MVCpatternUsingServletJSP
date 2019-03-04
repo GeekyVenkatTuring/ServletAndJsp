@@ -7,4 +7,21 @@ Servlet is controller which takes the request
 Bean is the Model to which servlet passes the request to get the data
 JSP is the view which presents the data to the client
 
+To understand more about MVC pattern,lets create project in the eclipse and finally we will upload the project into the github
 
+Usecase:
+We will create login page which takes UserID and password
+Our application need to authenticate the UserID and password. Send the user is System user or not
+
+Controller
+-LoginServlet--it takes userid and password from the request
+Business Service
+--AuthenticationService--it authenticate user
+Model
+--AuthenticationResult
+View
+--Login Page
+--Greetings Page
+
+
+In eclipse,we created Dynamic Web Project called "LoginAPP"
