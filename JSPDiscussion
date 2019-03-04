@@ -36,4 +36,78 @@ TO find the Java class, find it in the below temporary folder
 /home/vishvaksen/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/
 
 In this Github folder,I am copying this compiled java class,Please use it as reference
+https://github.com/GeekyVenkatTuring/ServletAndJsp/blob/master/Test_jsp.java
+
+We have page directives to tell the properties of the response and if you have to add any imports for any object also,we can use jsp
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="java.util.Date"%>
+
+We have one more useful command includes.Using this command we can get the response from another jsp file if you need
+
+<%@ includes file="<This new jsp file>"
+
+there are many scopes in the JSP
+--request scope
+String userName=request.getParameter("name");
+--Session scope
+session.setAttribut("username",username);
+session.getAttribute(username)
+--Application scope
+application.setAttribut("username",username);
+application.getAttribute(userName)
+--pageContext
+pageContext.setAttribut("username",username);
+pageContext.getAttribute(userName)
+
+pageContext has overloaded methods ,we can set paramters to other scopes
+example:
+pageContext.setAttribute("applicationcontext",username,PageContext.APPLICATION_SCOPE)
+
+Setting initilization parameters to the JSP page:
+for servlet, we can do it in the web.xml overriding the init-param xml node
+or we can use servlet lifecycle method init
+
+Similarly in JSP also,we can set the init parameters
+As we know JSP get converted into servlet by the Tomcat server
+
+Similar to Servlet ,make changes in the web.xml
+<servlet>
+<servlet-name>InitJSP</servlet-name>
+<jsp-file>/Test.jsp</jsp-file>
+<init-param>
+<param-name>defaultvariable</param-name>
+<param-value>defaultvalue</param-value>
+</init-param>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>InitJSP</servlet-name>
+<url-pattern>/Test.jsp</url-pattern>
+</servlet-mapping> 
+
+if you want access those input parameters defined in the web.xml for JSP,use servletconfig object in the script tag
+<%=getServletConfig.getInitParameter("defaultVariable")%>
+
+if you want to override the init method of jsp which is _jspInit(),use declaration script tag
+<%!
+public void _jspInit(){
+ServletContext context=getServletContext();
+context.setAttribute("defaultUserName",getServletConfig().getAttribute("defaultVariable");
+}
+%>
+
+Difference between ServletConfig and ServletContext
+
+ServletCOnfig is object created by Tomcat Server and all the init params defined in the web.xml are stored in the Servelet config object
+
+ServletContext is like application context which is scoped attribute.
+Values put in the ServletContext will be present across application
+
+References:
+We are noting down above all points from Java brains youtube channel
+https://www.youtube.com/watch?v=W0JQ0TaeXAY&index=17&list=PLE0F6C1917A427E96
+
+
+
 

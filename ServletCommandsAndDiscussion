@@ -1,3 +1,10 @@
 Servlet:
 
 
+
+Difference between ServletConfig and ServletContext
+
+ServletCOnfig is object created by Tomcat Server and all the init params defined in the web.xml are stored in the Servelet config object
+
+ServletContext is like application context which is scoped attribute.
+Values put in the ServletContext will be present across application
